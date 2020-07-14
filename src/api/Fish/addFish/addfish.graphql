@@ -1,0 +1,7 @@
+type Mutation {
+    createFish(
+        name: String!
+        price: Int
+        hotkeyNum: Int
+    ): Fish!
+}

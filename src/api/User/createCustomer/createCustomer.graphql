@@ -1,0 +1,10 @@
+type Mutation {
+    createCustomer(
+       businessName: String!
+       ownerName: String
+       phoneNumber: Int 
+       licenseNumber: Int
+       profile: String
+       pic: String
+    ): Customer!
+  }

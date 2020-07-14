@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs  https //pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mysql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  businessName  String 
+  email  String  @unique
+  firstName  String 
+  lastName  String 
+  phoneNumber  Int  
+  licenseNumber  Int  @unique
+  profile  String
+  pic  String
+}
+
+model Customer {
+  id Int @id @default(autoincrement())
+  businessName  String  @unique
+  ownerName  String
+  phoneNumber  Int
+  licenseNumber  Int @unique
+  profile  String
+  pic  String
+  sale Sale[] 
+}
+
+model Fish {
+  id Int @id @default(autoincrement())
+  name  String  @unique
+  price  Int
+  hotkeyNum  Int @unique
+}
+
+model Sale {
+  id Int @id @default(autoincrement())
+  customer Customer @relation(fields: [id], references: [id])
+  product  Fish @relation(fields: [id], references: [id])
+  quantity  Int 
+  price  Int 
+  createdAt  DateTime 
+}
+
+model File {
+  id Int @id
+  url  String 
+}
+
+
+
+
+

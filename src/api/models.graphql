@@ -1,0 +1,53 @@
+type User {
+  id: ID! 
+  email: String!
+  businessName: String!
+  firstName: String!
+  lastName: String!
+  phoneNumber: Int 
+  licenseNumber: Int 
+  profile: String
+  pic: String
+}
+
+type Customer {
+  id: ID! 
+  businessName: String!
+  ownerName: String
+  phoneNumber: Int!
+  licenseNumber: Int!
+  profile: String
+  pic: String
+  sale: Sale
+}
+
+type Fish {
+  id: ID! 
+  name: String! 
+  price: Int
+  hotkeyNum: Int 
+}
+
+type Deal {
+  id: ID!
+  customer: [Customer!]!
+  Fish: Fish
+  createdAt: String
+}
+
+type Sale {
+  id: ID! 
+  customer: Customer!
+  product: Fish!
+  quantity: Int!
+  price: Int!
+  createdAt: String
+}
+
+
+type File {
+  id: ID! 
+  url: String!
+}
+
+

@@ -1,0 +1,5 @@
+type Query {
+  userByName(
+    businessName: String!
+  ): User!
+}
