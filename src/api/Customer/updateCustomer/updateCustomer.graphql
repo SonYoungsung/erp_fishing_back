@@ -1,0 +1,10 @@
+type Mutation {
+    updateCustomer(
+       businessName: String!
+       ownerName: String
+       phoneNumber: String 
+       licenseNumber: String
+       profile: String
+       pic: String
+    ): Customer!
+  }

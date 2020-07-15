@@ -2,8 +2,8 @@ type Mutation {
     createCustomer(
        businessName: String!
        ownerName: String
-       phoneNumber: Int 
-       licenseNumber: Int
+       phoneNumber: String 
+       licenseNumber: String
        profile: String
        pic: String
     ): Customer!

@@ -21,10 +21,10 @@
     "deploy": "prisma deploy",
     "generate": "prisma generate",
     "prisma": "yarn run deploy && yarn run generate",
-    "migrate": "npx prisma migrate save --name init --experimental && npx prisma migrate up --experimental"
+    "migrate": "npx prisma generate && npx prisma migrate save --name init --experimental && npx prisma migrate up --experimental"
   },
   "dependencies": {
-    "@prisma/client": "2.0.0"
+    "@prisma/client": "^2.0.0"
   },
   "engines": {
     "node": ">=10.0.0"

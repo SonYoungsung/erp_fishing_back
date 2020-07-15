@@ -4,8 +4,8 @@ type Mutation {
      businessName: String!
      firstName: String!
      lastName: String!
-     phoneNumber: Int!
-     licenseNumber: Int! 
+     phoneNumber: String!
+     licenseNumber: String! 
      profile: String
      pic: String
   ): User!

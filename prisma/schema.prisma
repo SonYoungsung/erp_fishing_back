@@ -1,60 +1,69 @@
-// This is your Prisma schema file,
-// learn more about it in the docs  https //pris.ly/d/prisma-schema
+generator client {
+  provider = "prisma-client-js"
+}
 
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
-generator client {
-  provider = "prisma-client-js"
+model migration {
+  applied            Int
+  database_migration String
+  datamodel          String
+  datamodel_steps    String
+  errors             String
+  finished_at        DateTime?
+  name               String
+  revision           Int       @default(autoincrement()) @id
+  rolled_back        Int
+  started_at         DateTime
+  status             String
+
+  @@map("_migration")
 }
 
-model User {
-  id Int @id @default(autoincrement())
-  businessName  String 
-  email  String  @unique
-  firstName  String 
-  lastName  String 
-  phoneNumber  Int 
-  licenseNumber  Int  @unique
-  profile  String @default("")
-  pic  String @default("")
-}
-
-model Customer {
-  id Int @id @default(autoincrement())
+model customer {
   businessName  String  @unique
-  ownerName  String
-  phoneNumber  Int
-  licenseNumber  Int @unique
-  profile  String
-  pic  String
-  sale Sale[] 
+  id            Int     @default(autoincrement()) @id
+  licenseNumber String? @unique
+  ownerName     String?
+  phoneNumber   String?
+  pic           String?
+  profile       String?
+  sale          sale[]
 }
 
-model Fish {
-  id Int @id @default(autoincrement())
-  name  String  @unique
-  price  Int
-  hotkeyNum  Int @unique
+model file {
+  id  Int    @id
+  url String
 }
 
-model Sale {
-  id Int @id @default(autoincrement())
-  customer Customer @relation(fields: [id], references: [id])
-  product  Fish @relation(fields: [id], references: [id])
-  quantity  Int 
-  price  Int 
-  createdAt  DateTime 
+model fish {
+  hotkeyNum String? @unique
+  id        Int     @default(autoincrement()) @id
+  name      String  @unique
+  price     String?
+  sale      sale[]
 }
 
-model File {
-  id Int @id
-  url  String 
+model sale {
+  createdAt DateTime? @default(now())
+  id        Int       @id
+  price     Float
+  quantity  Float
+  customer  customer  @relation(fields: [id], references: [id])
+  fish      fish      @relation(fields: [id], references: [id])
 }
 
-
-
-
-
+model user {
+  businessName  String
+  email         String  @unique
+  firstName     String
+  id            Int     @default(autoincrement()) @id
+  lastName      String
+  licenseNumber String  @unique
+  phoneNumber   String
+  pic           String?
+  profile       String?
+}

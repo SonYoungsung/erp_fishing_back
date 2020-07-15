@@ -5,16 +5,11 @@ const prisma = new PrismaClient()
 // A `main` function so that you can use async/await
 async function main() {
 
-  const result = await prisma.user.create({
+  const result = await prisma.fish.create({
     data: {
-      email: "sysgigigi2@gmail.com",
-      businessName: "다구수산",
-      firstName: "혜연",
-      lastName: "김",
-      phoneNumber: 1033636258,
-      licenseNumber: 1102245,
-      profile: "",
-      pic: ""
+     name: "광어",
+     hotkeyNum: 1,
+     price: 1
     }
   })
 }

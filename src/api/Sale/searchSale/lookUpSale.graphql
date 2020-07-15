@@ -1,5 +1,5 @@
 type Query {
-    lookUpSale(customer: String!
+    searchSale(customerName: String!
     fromDate: String!
     toDate: String!
     ): [Sale!]!

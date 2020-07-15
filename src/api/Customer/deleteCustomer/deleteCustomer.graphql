@@ -1,0 +1,5 @@
+type Mutation {
+    deleteCustomer(
+       businessName: String!
+    ): Customer!
+  }

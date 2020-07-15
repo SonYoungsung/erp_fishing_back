@@ -113,14 +113,14 @@
       "tag": "CreateField",
       "model": "User",
       "field": "phoneNumber",
-      "type": "Int",
+      "type": "String",
       "arity": "Required"
     },
     {
       "tag": "CreateField",
       "model": "User",
       "field": "licenseNumber",
-      "type": "Int",
+      "type": "String",
       "arity": "Required"
     },
     {
@@ -139,14 +139,14 @@
       "model": "User",
       "field": "profile",
       "type": "String",
-      "arity": "Required"
+      "arity": "Optional"
     },
     {
       "tag": "CreateField",
       "model": "User",
       "field": "pic",
       "type": "String",
-      "arity": "Required"
+      "arity": "Optional"
     },
     {
       "tag": "CreateModel",
@@ -218,21 +218,21 @@
       "model": "Customer",
       "field": "ownerName",
       "type": "String",
-      "arity": "Required"
+      "arity": "Optional"
     },
     {
       "tag": "CreateField",
       "model": "Customer",
       "field": "phoneNumber",
-      "type": "Int",
-      "arity": "Required"
+      "type": "String",
+      "arity": "Optional"
     },
     {
       "tag": "CreateField",
       "model": "Customer",
       "field": "licenseNumber",
-      "type": "Int",
-      "arity": "Required"
+      "type": "String",
+      "arity": "Optional"
     },
     {
       "tag": "CreateDirective",
@@ -250,14 +250,14 @@
       "model": "Customer",
       "field": "profile",
       "type": "String",
-      "arity": "Required"
+      "arity": "Optional"
     },
     {
       "tag": "CreateField",
       "model": "Customer",
       "field": "pic",
       "type": "String",
-      "arity": "Required"
+      "arity": "Optional"
     },
     {
       "tag": "CreateField",
@@ -335,15 +335,15 @@
       "tag": "CreateField",
       "model": "Fish",
       "field": "price",
-      "type": "Int",
-      "arity": "Required"
+      "type": "String",
+      "arity": "Optional"
     },
     {
       "tag": "CreateField",
       "model": "Fish",
       "field": "hotkeyNum",
-      "type": "Int",
-      "arity": "Required"
+      "type": "String",
+      "arity": "Optional"
     },
     {
       "tag": "CreateDirective",
@@ -499,14 +499,14 @@
       "tag": "CreateField",
       "model": "Sale",
       "field": "quantity",
-      "type": "Int",
+      "type": "Float",
       "arity": "Required"
     },
     {
       "tag": "CreateField",
       "model": "Sale",
       "field": "price",
-      "type": "Int",
+      "type": "Float",
       "arity": "Required"
     },
     {
@@ -514,7 +514,32 @@
       "model": "Sale",
       "field": "createdAt",
       "type": "DateTime",
-      "arity": "Required"
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Sale",
+          "field": "createdAt"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Sale",
+          "field": "createdAt"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "now()"
     },
     {
       "tag": "CreateModel",

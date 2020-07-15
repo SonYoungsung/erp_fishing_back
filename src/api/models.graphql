@@ -4,8 +4,8 @@ type User {
   businessName: String!
   firstName: String!
   lastName: String!
-  phoneNumber: Int 
-  licenseNumber: Int 
+  phoneNumber: String
+  licenseNumber: String 
   profile: String
   pic: String
 }
@@ -14,8 +14,8 @@ type Customer {
   id: ID! 
   businessName: String!
   ownerName: String
-  phoneNumber: Int!
-  licenseNumber: Int!
+  phoneNumber: String
+  licenseNumber: String
   profile: String
   pic: String
   sale: Sale
@@ -24,23 +24,16 @@ type Customer {
 type Fish {
   id: ID! 
   name: String! 
-  price: Int
-  hotkeyNum: Int 
-}
-
-type Deal {
-  id: ID!
-  customer: [Customer!]!
-  Fish: Fish
-  createdAt: String
+  price: String
+  hotkeyNum: String 
 }
 
 type Sale {
   id: ID! 
   customer: Customer!
   product: Fish!
-  quantity: Int!
-  price: Int!
+  quantity: Float!
+  price: Float!
   createdAt: String
 }
 
