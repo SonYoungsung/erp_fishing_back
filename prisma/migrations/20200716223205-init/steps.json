@@ -21,15 +21,33 @@
         "source": "db"
       },
       "argument": "url",
-      "value": "env(\"DATABASE_URL\")"
+      "value": "\"***\""
     },
     {
       "tag": "CreateModel",
-      "model": "User"
+      "model": "Customer"
     },
     {
       "tag": "CreateField",
-      "model": "User",
+      "model": "Customer",
+      "field": "businessName",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Customer",
+          "field": "businessName"
+        },
+        "directive": "unique"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Customer",
       "field": "id",
       "type": "Int",
       "arity": "Required"
@@ -39,18 +57,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "User",
-          "field": "id"
-        },
-        "directive": "id"
-      }
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "User",
+          "model": "Customer",
           "field": "id"
         },
         "directive": "default"
@@ -62,13 +69,406 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "User",
+          "model": "Customer",
           "field": "id"
         },
         "directive": "default"
       },
       "argument": "",
       "value": "autoincrement()"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Customer",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Customer",
+      "field": "licenseNumber",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Customer",
+          "field": "licenseNumber"
+        },
+        "directive": "unique"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Customer",
+      "field": "ownerName",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Customer",
+      "field": "phoneNumber",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Customer",
+      "field": "pic",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Customer",
+      "field": "profile",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Customer",
+      "field": "sale",
+      "type": "Sale",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "File"
+    },
+    {
+      "tag": "CreateField",
+      "model": "File",
+      "field": "id",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "File",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "File",
+      "field": "url",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "Product"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Product",
+      "field": "hotkeyNum",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Product",
+          "field": "hotkeyNum"
+        },
+        "directive": "unique"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Product",
+      "field": "id",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Product",
+          "field": "id"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Product",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "autoincrement()"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Product",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Product",
+      "field": "name",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Product",
+          "field": "name"
+        },
+        "directive": "unique"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Product",
+      "field": "price",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Product",
+      "field": "sale",
+      "type": "Sale",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "Sale"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Sale",
+      "field": "createdAt",
+      "type": "DateTime",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Sale",
+          "field": "createdAt"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Sale",
+          "field": "createdAt"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "now()"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Sale",
+      "field": "id",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Sale",
+          "field": "id"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Sale",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "autoincrement()"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Sale",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Sale",
+      "field": "price",
+      "type": "Float",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Sale",
+      "field": "quantity",
+      "type": "Float",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Sale",
+      "field": "customer",
+      "type": "Customer",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Sale",
+          "field": "customer"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Sale",
+          "field": "customer"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[customerId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Sale",
+          "field": "customer"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Sale",
+      "field": "customerId",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Sale",
+      "field": "product",
+      "type": "Product",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Sale",
+          "field": "product"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Sale",
+          "field": "product"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[productId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Sale",
+          "field": "product"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Sale",
+      "field": "productId",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "User"
     },
     {
       "tag": "CreateField",
@@ -105,14 +505,50 @@
     {
       "tag": "CreateField",
       "model": "User",
-      "field": "lastName",
-      "type": "String",
+      "field": "id",
+      "type": "Int",
       "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "id"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "autoincrement()"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "id"
+        },
+        "directive": "id"
+      }
     },
     {
       "tag": "CreateField",
       "model": "User",
-      "field": "phoneNumber",
+      "field": "lastName",
       "type": "String",
       "arity": "Required"
     },
@@ -137,9 +573,9 @@
     {
       "tag": "CreateField",
       "model": "User",
-      "field": "profile",
+      "field": "phoneNumber",
       "type": "String",
-      "arity": "Optional"
+      "arity": "Required"
     },
     {
       "tag": "CreateField",
@@ -149,426 +585,11 @@
       "arity": "Optional"
     },
     {
-      "tag": "CreateModel",
-      "model": "Customer"
-    },
-    {
       "tag": "CreateField",
-      "model": "Customer",
-      "field": "id",
-      "type": "Int",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Customer",
-          "field": "id"
-        },
-        "directive": "id"
-      }
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Customer",
-          "field": "id"
-        },
-        "directive": "default"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Customer",
-          "field": "id"
-        },
-        "directive": "default"
-      },
-      "argument": "",
-      "value": "autoincrement()"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Customer",
-      "field": "businessName",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Customer",
-          "field": "businessName"
-        },
-        "directive": "unique"
-      }
-    },
-    {
-      "tag": "CreateField",
-      "model": "Customer",
-      "field": "ownerName",
-      "type": "String",
-      "arity": "Optional"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Customer",
-      "field": "phoneNumber",
-      "type": "String",
-      "arity": "Optional"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Customer",
-      "field": "licenseNumber",
-      "type": "String",
-      "arity": "Optional"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Customer",
-          "field": "licenseNumber"
-        },
-        "directive": "unique"
-      }
-    },
-    {
-      "tag": "CreateField",
-      "model": "Customer",
+      "model": "User",
       "field": "profile",
       "type": "String",
       "arity": "Optional"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Customer",
-      "field": "pic",
-      "type": "String",
-      "arity": "Optional"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Customer",
-      "field": "sale",
-      "type": "Sale",
-      "arity": "List"
-    },
-    {
-      "tag": "CreateModel",
-      "model": "Fish"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Fish",
-      "field": "id",
-      "type": "Int",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Fish",
-          "field": "id"
-        },
-        "directive": "id"
-      }
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Fish",
-          "field": "id"
-        },
-        "directive": "default"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Fish",
-          "field": "id"
-        },
-        "directive": "default"
-      },
-      "argument": "",
-      "value": "autoincrement()"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Fish",
-      "field": "name",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Fish",
-          "field": "name"
-        },
-        "directive": "unique"
-      }
-    },
-    {
-      "tag": "CreateField",
-      "model": "Fish",
-      "field": "price",
-      "type": "String",
-      "arity": "Optional"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Fish",
-      "field": "hotkeyNum",
-      "type": "String",
-      "arity": "Optional"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Fish",
-          "field": "hotkeyNum"
-        },
-        "directive": "unique"
-      }
-    },
-    {
-      "tag": "CreateModel",
-      "model": "Sale"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Sale",
-      "field": "id",
-      "type": "Int",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Sale",
-          "field": "id"
-        },
-        "directive": "id"
-      }
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Sale",
-          "field": "id"
-        },
-        "directive": "default"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Sale",
-          "field": "id"
-        },
-        "directive": "default"
-      },
-      "argument": "",
-      "value": "autoincrement()"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Sale",
-      "field": "customer",
-      "type": "Customer",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Sale",
-          "field": "customer"
-        },
-        "directive": "relation"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Sale",
-          "field": "customer"
-        },
-        "directive": "relation"
-      },
-      "argument": "fields",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Sale",
-          "field": "customer"
-        },
-        "directive": "relation"
-      },
-      "argument": "references",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Sale",
-      "field": "product",
-      "type": "Fish",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Sale",
-          "field": "product"
-        },
-        "directive": "relation"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Sale",
-          "field": "product"
-        },
-        "directive": "relation"
-      },
-      "argument": "fields",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Sale",
-          "field": "product"
-        },
-        "directive": "relation"
-      },
-      "argument": "references",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Sale",
-      "field": "quantity",
-      "type": "Float",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Sale",
-      "field": "price",
-      "type": "Float",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Sale",
-      "field": "createdAt",
-      "type": "DateTime",
-      "arity": "Optional"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Sale",
-          "field": "createdAt"
-        },
-        "directive": "default"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Sale",
-          "field": "createdAt"
-        },
-        "directive": "default"
-      },
-      "argument": "",
-      "value": "now()"
-    },
-    {
-      "tag": "CreateModel",
-      "model": "File"
-    },
-    {
-      "tag": "CreateField",
-      "model": "File",
-      "field": "id",
-      "type": "Int",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "File",
-          "field": "id"
-        },
-        "directive": "id"
-      }
-    },
-    {
-      "tag": "CreateField",
-      "model": "File",
-      "field": "url",
-      "type": "String",
-      "arity": "Required"
     }
   ]
 }

@@ -3,8 +3,8 @@ const prisma = new PrismaClient();
 
 export default {
   Mutation: {
-    createFish: async (_, args) => {
-      return await prisma.fish.create({
+    createProduct: async (_, args) => {
+      return await prisma.product.create({
         data: args,
       });
     },

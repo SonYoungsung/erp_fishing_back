@@ -4,15 +4,12 @@ const prisma = new PrismaClient();
 export default {
   Query: {
     searchSale: async (_, args) => {
-      const { customerName, fromDate, toDate } = args;
+      const { customerId, fromDate, toDate } = args;
       return await prisma.sale.findMany({
         where: {
-          customer: {
-            businessName: customerName,
-          },
-
-          date_created: {
-            AND: [{ gte: fromDate }, { lte: toDate }],
+          createdAt: {
+            gte: new Date(fromDate),
+            lte: new Date(toDate),
           },
         },
       });

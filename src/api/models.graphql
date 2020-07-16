@@ -21,7 +21,7 @@ type Customer {
   sale: Sale
 }
 
-type Fish {
+type Product {
   id: ID! 
   name: String! 
   price: String
@@ -31,12 +31,14 @@ type Fish {
 type Sale {
   id: ID! 
   customer: Customer!
-  product: Fish!
+  customerId: Int
+  product: Product!
   quantity: Float!
   price: Float!
   createdAt: String
+  ptoduct: Product
+  productId: Int
 }
-
 
 type File {
   id: ID! 

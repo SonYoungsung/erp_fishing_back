@@ -1,7 +1,7 @@
 type Mutation {
-    createFish(
+    createProduct(
         name: String!
         price: String
         hotkeyNum: String
-    ): Fish!
+    ): Product!
 }

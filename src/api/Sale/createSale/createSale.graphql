@@ -1,7 +1,7 @@
 type Mutation {
   createSale(
-    businessName: Int!
-    product: String!
+    customerId: Int!
+    productId: Int!
     quantity: Float!
     price: Float!
   ): Sale!

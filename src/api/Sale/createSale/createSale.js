@@ -4,18 +4,18 @@ const prisma = new PrismaClient();
 export default {
   Mutation: {
     createSale: async (_, args) => {
-      const { businessName, product, quantity, price } = args;
+      const { customerId, productId, quantity, price } = args;
 
       return await prisma.sale.create({
         data: {
           customer: {
             connect: {
-              businessName: businessName,
+              id: customerId,
             },
           },
-          fish: {
+          product: {
             connect: {
-              name: product,
+              id: productId,
             },
           },
           price,
