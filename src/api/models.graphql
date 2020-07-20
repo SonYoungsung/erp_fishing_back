@@ -45,4 +45,15 @@ type File {
   url: String!
 }
 
+type Buy { 
+  id: ID! 
+  customer: Customer!
+  customerId: Int
+  product: Product!
+  quantity: Float!
+  price: Float!
+  createdAt: String
+  ptoduct: Product
+  productId: Int
+}
 

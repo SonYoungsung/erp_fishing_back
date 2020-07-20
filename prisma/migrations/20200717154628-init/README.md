@@ -1,6 +1,6 @@
-# Migration `20200716223205-init`
+# Migration `20200717154628-init`
 
-This migration has been generated at 7/16/2020, 10:32:05 PM.
+This migration has been generated at 7/17/2020, 3:46:28 PM.
 You can check out the [state of the schema](./schema.prisma) after the migration.
 
 ## Database Steps
@@ -32,7 +32,7 @@ CREATE TABLE `dagu`.`Product` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 
 CREATE TABLE `dagu`.`Sale` (
-`createdAt` datetime  DEFAULT CURRENT_TIMESTAMP ,
+`createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ,
 `customerId` int NOT NULL ,
 `id` int NOT NULL  AUTO_INCREMENT,
 `price` Decimal(65,30) NOT NULL  ,
@@ -54,6 +54,16 @@ CREATE TABLE `dagu`.`User` (
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 
+CREATE TABLE `dagu`.`Buy` (
+`createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+`customerId` int NOT NULL ,
+`id` int NOT NULL  AUTO_INCREMENT,
+`price` Decimal(65,30) NOT NULL  ,
+`productId` int NOT NULL ,
+`quantity` Decimal(65,30) NOT NULL  ,
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+
 CREATE UNIQUE INDEX `Customer.businessName` ON `dagu`.`Customer`(`businessName`)
 
 CREATE UNIQUE INDEX `Customer.licenseNumber` ON `dagu`.`Customer`(`licenseNumber`)
@@ -70,13 +80,17 @@ ALTER TABLE `dagu`.`Sale` ADD FOREIGN KEY (`customerId`) REFERENCES `dagu`.`Cust
 
 ALTER TABLE `dagu`.`Sale` ADD FOREIGN KEY (`productId`) REFERENCES `dagu`.`Product`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
 
+ALTER TABLE `dagu`.`Buy` ADD FOREIGN KEY (`customerId`) REFERENCES `dagu`.`Customer`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
+
+ALTER TABLE `dagu`.`Buy` ADD FOREIGN KEY (`productId`) REFERENCES `dagu`.`Product`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
+
 DROP TABLE `dagu`.`_migration`;
 
 DROP TABLE `dagu`.`customer`;
 
 DROP TABLE `dagu`.`file`;
 
-DROP TABLE `dagu`.`fish`;
+DROP TABLE `dagu`.`product`;
 
 DROP TABLE `dagu`.`sale`;
 
@@ -87,10 +101,10 @@ DROP TABLE `dagu`.`user`;
 
 ```diff
 diff --git schema.prisma schema.prisma
-migration ..20200716223205-init
+migration ..20200717154628-init
 --- datamodel.dml
 +++ datamodel.dml
-@@ -1,0 +1,55 @@
+@@ -1,0 +1,66 @@
 +generator client {
 +  provider = "prisma-client-js"
 +}
@@ -125,14 +139,14 @@ migration ..20200716223205-init
 +}
 +
 +model Sale {
-+  createdAt  DateTime? @default(now())
++  createdAt  DateTime @default(now())
 +  id         Int       @default(autoincrement()) @id
 +  price      Float
 +  quantity   Float
 +  customer   Customer  @relation(fields: [customerId], references: [id])
++  product    Product  @relation(fields: [productId], references: [id])
 +  customerId Int
-+  product    Product      @relation(fields: [productId], references: [id])
-+  productId     Int
++  productId Int
 +}
 +
 +model User {
@@ -145,6 +159,17 @@ migration ..20200716223205-init
 +  phoneNumber   String
 +  pic           String?
 +  profile       String?
++}
++
++model Buy {
++  createdAt  DateTime @default(now())
++  id         Int       @default(autoincrement()) @id
++  price      Float
++  quantity   Float
++  customer   Customer  @relation(fields: [customerId], references: [id])
++  product    Product  @relation(fields: [productId], references: [id])
++  customerId Int
++  productId Int
 +}
 ```
 

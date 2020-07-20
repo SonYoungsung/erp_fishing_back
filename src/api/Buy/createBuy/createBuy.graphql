@@ -1,0 +1,8 @@
+type Mutation {
+  createBuy(
+    customerId: Int!
+    productId: Int!
+    quantity: Float!
+    price: Float!
+  ): Buy!
+}

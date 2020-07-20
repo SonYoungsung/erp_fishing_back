@@ -3,10 +3,10 @@ const prisma = new PrismaClient();
 
 export default {
   Mutation: {
-    deleteCustomer: async (_, args) => {
+    deleteBuy: async (_, args) => {
       try {
-        await prisma.customer.delete({
-          where: args.id,
+        await prisma.buy.delete({
+          where: args,
         });
         return true;
       } catch {

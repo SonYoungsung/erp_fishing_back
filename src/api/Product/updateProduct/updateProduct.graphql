@@ -1,0 +1,8 @@
+type Mutation {
+    updateProduct(
+       id: Int!
+       name: String!
+       price: Int
+       hotkeyNum: Int
+    ): Boolean!
+  }

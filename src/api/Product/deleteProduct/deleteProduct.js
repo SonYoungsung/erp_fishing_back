@@ -3,9 +3,9 @@ const prisma = new PrismaClient();
 
 export default {
   Mutation: {
-    deleteCustomer: async (_, args) => {
+    deleteProduct: async (_, args) => {
       try {
-        await prisma.customer.delete({
+        await prisma.product.delete({
           where: args.id,
         });
         return true;

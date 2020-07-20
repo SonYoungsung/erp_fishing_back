@@ -4,8 +4,12 @@ const prisma = new PrismaClient();
 export default {
   Query: {
     searchCustomer: async (_, args) => {
-      return await prisma.customer.findOne({
-        where: args,
+      return await prisma.customer.findMany({
+        where: {
+          businessName: {
+            contains: args.businessName,
+          },
+        },
       });
     },
   },
