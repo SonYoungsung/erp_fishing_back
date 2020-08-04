@@ -1,0 +1,6 @@
+type Query {
+  searchProduct(
+    name: String!
+    hotkeyNum: Int
+  ): [Product!]!
+}
