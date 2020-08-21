@@ -1,5 +1,6 @@
 type Mutation {
     deleteProduct(
+        uid: String!
        id: Int!
     ): Boolean!
   }

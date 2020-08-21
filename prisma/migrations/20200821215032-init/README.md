@@ -1,6 +1,6 @@
-# Migration `20200807002722-init`
+# Migration `20200821215032-init`
 
-This migration has been generated at 8/7/2020, 12:27:22 AM.
+This migration has been generated at 8/21/2020, 9:50:32 PM.
 You can check out the [state of the schema](./schema.prisma) after the migration.
 
 ## Database Steps
@@ -15,11 +15,13 @@ CREATE TABLE `dagu`.`Customer` (
 `phoneNumber` varchar(191)   ,
 `pic` varchar(191)   ,
 `profile` varchar(191)   ,
+`uid` varchar(191) NOT NULL  ,
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 
 CREATE TABLE `dagu`.`File` (
 `id` int NOT NULL  ,
+`uid` varchar(191) NOT NULL  ,
 `url` varchar(191) NOT NULL  ,
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
@@ -29,6 +31,7 @@ CREATE TABLE `dagu`.`Product` (
 `id` int NOT NULL  AUTO_INCREMENT,
 `name` varchar(191) NOT NULL  ,
 `price` Decimal(65,30)   ,
+`uid` varchar(191) NOT NULL  ,
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 
@@ -39,6 +42,7 @@ CREATE TABLE `dagu`.`Sale` (
 `price` Decimal(65,30) NOT NULL  ,
 `productId` int NOT NULL ,
 `quantity` Decimal(65,30) NOT NULL  ,
+`uid` varchar(191) NOT NULL  ,
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 
@@ -52,6 +56,7 @@ CREATE TABLE `dagu`.`User` (
 `phoneNumber` varchar(191) NOT NULL  ,
 `pic` varchar(191)   ,
 `profile` varchar(191)   ,
+`uid` varchar(191) NOT NULL  ,
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 
@@ -62,6 +67,7 @@ CREATE TABLE `dagu`.`Buy` (
 `price` Decimal(65,30) NOT NULL  ,
 `productId` int NOT NULL ,
 `quantity` Decimal(65,30) NOT NULL  ,
+`uid` varchar(191) NOT NULL  ,
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 
@@ -92,10 +98,10 @@ DROP TABLE `dagu`.`_migration`;
 
 ```diff
 diff --git schema.prisma schema.prisma
-migration ..20200807002722-init
+migration ..20200821215032-init
 --- datamodel.dml
 +++ datamodel.dml
-@@ -1,0 +1,67 @@
+@@ -1,0 +1,73 @@
 +generator client {
 +  provider = "prisma-client-js"
 +}
@@ -106,10 +112,11 @@ migration ..20200807002722-init
 +}
 +
 +model Customer {
++  uid String
 +  businessName  String  @unique
 +  id            Int     @default(autoincrement()) @id
 +  licenseNumber String? @unique
-+  ownerName     String?
++  ownerName     String? 
 +  phoneNumber   String?
 +  pic           String?
 +  profile       String?
@@ -118,11 +125,13 @@ migration ..20200807002722-init
 +}
 +
 +model File {
++  uid String
 +  id  Int    @id
 +  url String
 +}
 +
 +model Product {
++  uid String
 +  hotkeyNum Int? @unique
 +  id        Int     @default(autoincrement()) @id
 +  name      String  @unique
@@ -131,6 +140,7 @@ migration ..20200807002722-init
 +}
 +
 +model Sale {
++  uid String
 +  createdAt  DateTime @default(now())
 +  id         Int       @default(autoincrement()) @id
 +  price      Float
@@ -142,6 +152,7 @@ migration ..20200807002722-init
 +}
 +
 +model User {
++  uid String
 +  businessName  String
 +  email         String  @unique
 +  firstName     String
@@ -154,6 +165,7 @@ migration ..20200807002722-init
 +}
 +
 +model Buy {
++  uid String
 +  createdAt  DateTime @default(now())
 +  id         Int       @default(autoincrement()) @id
 +  price      Float

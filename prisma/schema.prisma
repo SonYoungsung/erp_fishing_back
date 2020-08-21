@@ -4,14 +4,15 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("http://localhost:4466")
+  url      = env("DATABASE_URL")
 }
 
 model Customer {
+  uid String
   businessName  String  @unique
   id            Int     @default(autoincrement()) @id
   licenseNumber String? @unique
-  ownerName     String?
+  ownerName     String? 
   phoneNumber   String?
   pic           String?
   profile       String?
@@ -20,11 +21,13 @@ model Customer {
 }
 
 model File {
+  uid String
   id  Int    @id
   url String
 }
 
 model Product {
+  uid String
   hotkeyNum Int? @unique
   id        Int     @default(autoincrement()) @id
   name      String  @unique
@@ -33,6 +36,7 @@ model Product {
 }
 
 model Sale {
+  uid String
   createdAt  DateTime @default(now())
   id         Int       @default(autoincrement()) @id
   price      Float
@@ -44,6 +48,7 @@ model Sale {
 }
 
 model User {
+  uid String
   businessName  String
   email         String  @unique
   firstName     String
@@ -56,6 +61,7 @@ model User {
 }
 
 model Buy {
+  uid String
   createdAt  DateTime @default(now())
   id         Int       @default(autoincrement()) @id
   price      Float

@@ -4,10 +4,11 @@ const prisma = new PrismaClient();
 export default {
   Mutation: {
     updateBuy: async (_, args) => {
-      const { id, price, quantity } = args;
+      const { uid, id, price, quantity } = args;
       try {
         await prisma.buy.update({
           where: {
+            uid,
             id,
           },
           data: {

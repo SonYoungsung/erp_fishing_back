@@ -1,5 +1,6 @@
 type Mutation {
     createCustomer(
+       uid: String!
        businessName: String!
        ownerName: String
        phoneNumber: String 

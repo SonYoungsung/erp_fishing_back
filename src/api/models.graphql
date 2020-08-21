@@ -11,6 +11,7 @@ type User {
 }
 
 type Customer {
+  uid: String!
   id: ID! 
   businessName: String!
   ownerName: String
@@ -23,6 +24,7 @@ type Customer {
 }
 
 type Product {
+  uid: String!
   id: ID! 
   name: String! 
   price: Float
@@ -30,6 +32,7 @@ type Product {
 }
 
 type Sale {
+  uid: String!
   id: ID! 
   customer: Customer!
   customerId: Int
@@ -42,11 +45,13 @@ type Sale {
 }
 
 type File {
+  uid: String!
   id: ID! 
   url: String!
 }
 
 type Buy { 
+  uid: String!
   id: ID! 
   customer: Customer!
   customerId: Int

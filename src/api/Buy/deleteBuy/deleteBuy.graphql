@@ -1,5 +1,6 @@
 type Mutation {
     deleteBuy(
+       uid: String!
        id: Int!
     ): Boolean!
   }

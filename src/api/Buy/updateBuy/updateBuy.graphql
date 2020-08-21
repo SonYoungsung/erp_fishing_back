@@ -1,5 +1,6 @@
 type Mutation {
     updateBuy(
+       uid: String!
        id: Int!
        price: Float!, 
        quantity: Float!,

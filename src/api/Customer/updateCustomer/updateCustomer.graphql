@@ -1,5 +1,6 @@
 type Mutation {
     updateCustomer(
+       uid: String!
        businessName: String!
        ownerName: String
        phoneNumber: String 

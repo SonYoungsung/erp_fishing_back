@@ -5,10 +5,7 @@ export default {
   Query: {
     searchBuy: async (_, args) => {
       return await prisma.buy.findMany({
-        where: {
-          customerId: args.customerId,
-          productId: args.productId,
-        },
+        where: args,
       });
     },
   },

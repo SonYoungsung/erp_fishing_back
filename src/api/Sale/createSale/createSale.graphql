@@ -1,5 +1,6 @@
 type Mutation {
   createSale(
+    uid: String!
     customerId: Int!
     productId: Int!
     quantity: Float!

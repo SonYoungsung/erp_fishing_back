@@ -1,5 +1,6 @@
 type Query {
   searchCustomer(
+    uid: String!
     businessName: String!
   ): [Customer!]!
 }

@@ -6,7 +6,7 @@ export default {
     deleteProduct: async (_, args) => {
       try {
         await prisma.product.delete({
-          where: args.id,
+          where: args,
         });
         return true;
       } catch {

@@ -1,5 +1,6 @@
 type Mutation {
     deleteCustomer(
+       uid: String!
        id: Int!
     ): Boolean!
   }

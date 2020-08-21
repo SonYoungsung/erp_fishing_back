@@ -1,6 +1,7 @@
 type Mutation {
   createBuy(
-    customerId: Int!
+    uid: String!
+    busineName: Int!
     productId: Int!
     quantity: Float!
     price: Float!

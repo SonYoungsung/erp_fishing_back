@@ -30,6 +30,13 @@
     {
       "tag": "CreateField",
       "model": "Customer",
+      "field": "uid",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Customer",
       "field": "businessName",
       "type": "String",
       "arity": "Required"
@@ -155,6 +162,13 @@
     {
       "tag": "CreateField",
       "model": "File",
+      "field": "uid",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "File",
       "field": "id",
       "type": "Int",
       "arity": "Required"
@@ -180,6 +194,13 @@
     {
       "tag": "CreateModel",
       "model": "Product"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Product",
+      "field": "uid",
+      "type": "String",
+      "arity": "Required"
     },
     {
       "tag": "CreateField",
@@ -277,6 +298,13 @@
     {
       "tag": "CreateModel",
       "model": "Sale"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Sale",
+      "field": "uid",
+      "type": "String",
+      "arity": "Required"
     },
     {
       "tag": "CreateField",
@@ -480,6 +508,13 @@
     {
       "tag": "CreateField",
       "model": "User",
+      "field": "uid",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
       "field": "businessName",
       "type": "String",
       "arity": "Required"
@@ -601,6 +636,13 @@
     {
       "tag": "CreateModel",
       "model": "Buy"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Buy",
+      "field": "uid",
+      "type": "String",
+      "arity": "Required"
     },
     {
       "tag": "CreateField",

@@ -6,7 +6,7 @@ export default {
     deleteCustomer: async (_, args) => {
       try {
         await prisma.customer.delete({
-          where: args.id,
+          where: args,
         });
         return true;
       } catch {

@@ -5,6 +5,7 @@ export default {
   Mutation: {
     createCustomer: async (_, args) => {
       const {
+        uid,
         businessName,
         ownerName = null,
         phoneNumber = null,
@@ -14,6 +15,7 @@ export default {
       } = args;
       return await prisma.customer.create({
         data: {
+          uid: uid,
           businessName: businessName,
           ownerName: ownerName,
           phoneNumber: phoneNumber,

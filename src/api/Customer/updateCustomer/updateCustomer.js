@@ -5,6 +5,7 @@ export default {
   Mutation: {
     updateCustomer: async (_, args) => {
       const {
+        uid,
         businessName,
         ownerName = null,
         phoneNumber = null,
@@ -14,6 +15,7 @@ export default {
       } = args;
       return await prisma.customer.update({
         where: {
+          uid: uid,
           businessName: businessName,
         },
         data: {
