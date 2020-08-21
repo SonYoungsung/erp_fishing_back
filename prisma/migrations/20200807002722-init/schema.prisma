@@ -16,6 +16,7 @@ model Customer {
   pic           String?
   profile       String?
   sale          Sale[]
+  address String?
 }
 
 model File {
@@ -24,10 +25,10 @@ model File {
 }
 
 model Product {
-  hotkeyNum String? @unique
+  hotkeyNum Int? @unique
   id        Int     @default(autoincrement()) @id
   name      String  @unique
-  price     String?
+  price     Float?
   sale      Sale[]
 }
 

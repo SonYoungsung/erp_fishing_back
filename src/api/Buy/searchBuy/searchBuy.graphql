@@ -1,0 +1,6 @@
+type Query {
+  searchBuy(
+    customerId: Int
+    productId: Int
+  ): [Buy!]!
+}

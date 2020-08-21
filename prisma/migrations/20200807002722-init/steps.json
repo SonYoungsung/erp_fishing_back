@@ -142,6 +142,13 @@
       "arity": "List"
     },
     {
+      "tag": "CreateField",
+      "model": "Customer",
+      "field": "address",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
       "tag": "CreateModel",
       "model": "File"
     },
@@ -178,7 +185,7 @@
       "tag": "CreateField",
       "model": "Product",
       "field": "hotkeyNum",
-      "type": "String",
+      "type": "Int",
       "arity": "Optional"
     },
     {
@@ -257,7 +264,7 @@
       "tag": "CreateField",
       "model": "Product",
       "field": "price",
-      "type": "String",
+      "type": "Float",
       "arity": "Optional"
     },
     {

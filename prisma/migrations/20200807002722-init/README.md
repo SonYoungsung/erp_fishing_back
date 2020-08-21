@@ -1,12 +1,13 @@
-# Migration `20200717154628-init`
+# Migration `20200807002722-init`
 
-This migration has been generated at 7/17/2020, 3:46:28 PM.
+This migration has been generated at 8/7/2020, 12:27:22 AM.
 You can check out the [state of the schema](./schema.prisma) after the migration.
 
 ## Database Steps
 
 ```sql
 CREATE TABLE `dagu`.`Customer` (
+`address` varchar(191)   ,
 `businessName` varchar(191) NOT NULL  ,
 `id` int NOT NULL  AUTO_INCREMENT,
 `licenseNumber` varchar(191)   ,
@@ -24,10 +25,10 @@ CREATE TABLE `dagu`.`File` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 
 CREATE TABLE `dagu`.`Product` (
-`hotkeyNum` varchar(191)   ,
+`hotkeyNum` int   ,
 `id` int NOT NULL  AUTO_INCREMENT,
 `name` varchar(191) NOT NULL  ,
-`price` varchar(191)   ,
+`price` Decimal(65,30)   ,
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 
@@ -85,26 +86,16 @@ ALTER TABLE `dagu`.`Buy` ADD FOREIGN KEY (`customerId`) REFERENCES `dagu`.`Custo
 ALTER TABLE `dagu`.`Buy` ADD FOREIGN KEY (`productId`) REFERENCES `dagu`.`Product`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
 
 DROP TABLE `dagu`.`_migration`;
-
-DROP TABLE `dagu`.`customer`;
-
-DROP TABLE `dagu`.`file`;
-
-DROP TABLE `dagu`.`product`;
-
-DROP TABLE `dagu`.`sale`;
-
-DROP TABLE `dagu`.`user`;
 ```
 
 ## Changes
 
 ```diff
 diff --git schema.prisma schema.prisma
-migration ..20200717154628-init
+migration ..20200807002722-init
 --- datamodel.dml
 +++ datamodel.dml
-@@ -1,0 +1,66 @@
+@@ -1,0 +1,67 @@
 +generator client {
 +  provider = "prisma-client-js"
 +}
@@ -123,6 +114,7 @@ migration ..20200717154628-init
 +  pic           String?
 +  profile       String?
 +  sale          Sale[]
++  address String?
 +}
 +
 +model File {
@@ -131,10 +123,10 @@ migration ..20200717154628-init
 +}
 +
 +model Product {
-+  hotkeyNum String? @unique
++  hotkeyNum Int? @unique
 +  id        Int     @default(autoincrement()) @id
 +  name      String  @unique
-+  price     String?
++  price     Float?
 +  sale      Sale[]
 +}
 +

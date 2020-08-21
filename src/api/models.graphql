@@ -19,12 +19,13 @@ type Customer {
   profile: String
   pic: String
   sale: Sale
+  address: String
 }
 
 type Product {
   id: ID! 
   name: String! 
-  price: String
+  price: Float
   hotkeyNum: String 
 }
 
