@@ -10,7 +10,7 @@ export default {
           uid: uid,
           createdAt: {
             gte: new Date(fromDate),
-            lte: new Date(toDate),
+            lte: toDate !== null && undefined ? new Date(toDate) : new Date(),
           },
         },
       });
