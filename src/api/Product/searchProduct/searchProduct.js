@@ -6,7 +6,7 @@ export default {
     searchProduct: async (_, args) => {
       return await prisma.product.findMany({
         where: {
-          uid: uid,
+          uid: args.uid,
           name: {
             contains: args.name,
           },
