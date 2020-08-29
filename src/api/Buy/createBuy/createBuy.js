@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 export default {
   Mutation: {
     createBuy: async (_, args) => {
-      const { uid, busineName, productId, quantity, price } = args;
+      const { uid, busineName, productId, quantity, price, dealDate } = args;
 
       return await prisma.buy.create({
         data: {
@@ -21,6 +21,7 @@ export default {
           price,
           quantity,
           uid,
+          dealDate,
         },
       });
     },

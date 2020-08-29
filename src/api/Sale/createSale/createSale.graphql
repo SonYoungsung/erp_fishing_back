@@ -5,5 +5,6 @@ type Mutation {
     productId: Int!
     quantity: Float!
     price: Float!
+    dealDate: String!
   ): Sale!
 }

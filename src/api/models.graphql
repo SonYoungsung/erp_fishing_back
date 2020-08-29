@@ -1,18 +1,18 @@
 type User {
-  id: ID! 
+  id: ID!
   email: String!
   businessName: String!
   firstName: String!
   lastName: String!
   phoneNumber: String
-  licenseNumber: String 
+  licenseNumber: String
   profile: String
   pic: String
 }
 
 type Customer {
   uid: String!
-  id: ID! 
+  id: ID!
   businessName: String!
   ownerName: String
   phoneNumber: String
@@ -25,15 +25,15 @@ type Customer {
 
 type Product {
   uid: String!
-  id: ID! 
-  name: String! 
+  id: ID!
+  name: String!
   price: Float
-  hotkeyNum: String 
+  hotkeyNum: String
 }
 
 type Sale {
   uid: String!
-  id: ID! 
+  id: ID!
   customer: Customer!
   customerId: Int
   product: Product!
@@ -42,17 +42,18 @@ type Sale {
   createdAt: String
   ptoduct: Product
   productId: Int
+  dealDate: String!
 }
 
 type File {
   uid: String!
-  id: ID! 
+  id: ID!
   url: String!
 }
 
-type Buy { 
+type Buy {
   uid: String!
-  id: ID! 
+  id: ID!
   customer: Customer!
   customerId: Int
   product: Product!
@@ -61,5 +62,5 @@ type Buy {
   createdAt: String
   ptoduct: Product
   productId: Int
+  dealDate: String!
 }
-
