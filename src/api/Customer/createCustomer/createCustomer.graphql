@@ -1,11 +1,12 @@
 type Mutation {
-    createCustomer(
-       uid: String!
-       businessName: String!
-       ownerName: String
-       phoneNumber: String 
-       licenseNumber: String
-       profile: String
-       pic: String
-    ): Customer!
-  }
+  createCustomer(
+    uid: String!
+    businessName: String!
+    ownerName: String
+    phoneNumber: String
+    licenseNumber: String
+    profile: String
+    pic: String
+    address: String
+  ): Customer!
+}

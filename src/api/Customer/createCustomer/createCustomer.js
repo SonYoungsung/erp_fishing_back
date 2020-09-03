@@ -12,6 +12,7 @@ export default {
         licenseNumber = null,
         profile = null,
         pic = null,
+        address = null,
       } = args;
       return await prisma.customer.create({
         data: {
@@ -22,6 +23,7 @@ export default {
           licenseNumber: licenseNumber,
           profile: profile,
           pic: pic,
+          address: address,
         },
       });
     },
